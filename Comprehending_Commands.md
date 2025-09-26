@@ -135,11 +135,9 @@ In this challenge, we learn the `ls` command to list the files in a directory.
 ## Touching Files
 
 ### Solve: 
+I used the command `cd /tmp` and then `touch pwn` and `touch college` to create new files in `/tmp` and ran the command `/challenge/run` to get the flag.
 
 **Flag:** `pwn.college{wqUQmPFQ1cul-yHKPX_DQXdP77d.QXwMDO0wSO5EzNzEzW}`
-
-
-I used the command `cd /tmp` and then `touch pwn` and `touch college` to create new files in `/tmp` and ran the command `/challenge/run` to get the flag.
 
 ```
 hacker@commands~touching-files:~$ cd /tmp
@@ -161,10 +159,9 @@ In this challenge, we had to create two files `pwn` and `college` in the tmp dir
 ### Removing files
 
 ### Solve: 
+I had to `rm delete_me` to delete the file in the `~` or /home directory and run `/challenge/check` to retrieve the flag.
 
 **Flag:** `pwn.college{8NULquNOMOPfzB5fYrPe_j71nJ0.QX2kDM1wSO5EzNzEzW}`
-
-I had to `rm delete_me` to delete the file in the `~` or /home directory and run `/challenge/check` to retrieve the flag.
 
 ```
 hacker@commands~removing-files:~$ ls 
@@ -187,7 +184,7 @@ We learn about `rm` which removes/deletes files.
 
 
 ### Solve:
-
+I had to move /flag to /tmp/hack-the-planet, I achieved that using the mv command along with suitable parameters
 
 Flag : `pwn.college{IwmgZcMB9Bx5mzlvYE2puCSCpJ6.0VOxEzNxwSO5EzNzEzW}`
 
@@ -215,13 +212,10 @@ Used `mv` anmd learnt the parameters, the first param is the file you have to mo
 ## Hidden files
 
 ### Solve: 
-
-
-**Flag:** `pwn.college{A5KiNFMfsMhGKMYGG0xw7VmYprZ.QXwUDO0wSO5EzNzEzW}`
-
-
 I ran the command `cd /` and then ran `ls -a` to view the list of files including the hidden ones.  
 I ran the command `flag-52608529479` to retrieve the flag.
+
+**Flag:** `pwn.college{A5KiNFMfsMhGKMYGG0xw7VmYprZ.QXwUDO0wSO5EzNzEzW}`
 
 ```
 hacker@commands~hidden-files:~$ ls / -a
@@ -242,11 +236,10 @@ To view them with `ls`, you need to invoke `ls` with the `-a` flag.
 ### An Epic Filesystem Quest
 
 ### Solve : 
-
+In this challenge I had to use basic Linux commands such as `cd, ls -a, and cat ` to navigate through directories, discover hidden files, and read clues, until finally i reached the flag.
 
 **Flag:** `pwn.college{Awt_K6C7nf6mjcQuU3X1fuO6Vl1.QX5IDO0wSO5EzNzEzW}`
 
-In this challenge I had to use basic Linux commands such as `cd, ls -a, and cat ` to navigate through directories, discover hidden files, and read clues, until finally i reached the flag
 ```
 cd /
 ls -a
@@ -286,6 +279,7 @@ Always use ls -a to reveal hidden files, learnt how to run ls/cat using absolute
 ### Making Directories
 
 ### Solve : 
+I used `cd /tmp` to `cd` into `tmp`, then `mkdir pwn` to make a directory, `cd /tmp/pwn` to enter it, `touch college` to make a file, and ran `/challenge/check` to retrieve the flag.
 
 **Flag:** `pwn.college{Edp8YH__EpuSM5a_myYZ2VJjkbp.QXxMDO0wSO5EzNzEzW}`
 
@@ -299,9 +293,6 @@ pwn.college{Edp8YH__EpuSM5a_myYZ2VJjkbp.QXxMDO0wSO5EzNzEzW}
 hacker@commands~making-directories:/tmp/pwn$ 
 
 ```
-
-I used `cd /tmp` to `cd` into `tmp`, then `mkdir pwn` to make a directory, `cd /tmp/pwn` to enter it, `touch college` to make a file, and ran `/challenge/check` to retrieve the flag.
-
 
 
 ### New Learnings
@@ -329,6 +320,8 @@ The `find` command takes optional arguments describing the search criteria and t
 ### Solve : 
 
 First, i ran `/challenge/catflag` , but to no avail, then i created symlink for `/home/hacker/not-the-flag` and linked it to `/flag`, now running the catflag file, gave me the flag.
+
+**Flag:** `pwn.college{kiU8pORZx-SHg2I2fryeNrO9ZAz.QX5ETN1wSO5EzNzEzW}`
 ```
 hacker@commands~linking-files:~$ /challenge/catflag
 About to read out the /home/hacker/not-the-flag file!
@@ -340,8 +333,6 @@ pwn.college{kiU8pORZx-SHg2I2fryeNrO9ZAz.QX5ETN1wSO5EzNzEzW}
 hacker@commands~linking-files:~$ 
 
 ```
-
-**Flag:** `pwn.college{kiU8pORZx-SHg2I2fryeNrO9ZAz.QX5ETN1wSO5EzNzEzW}`
 
 ### New Learnings
 
