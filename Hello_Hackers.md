@@ -20,6 +20,7 @@ invoking the hello command prints out the flag
 ### References 
 
 none
+
 ---
 
 ## Intro To Arguments : 
@@ -44,6 +45,7 @@ All commands have their different params, which we can access using "help", here
 
 none
 
+---
 
 ## Command History :
 
@@ -64,5 +66,5 @@ history can be accessed using the up arrow keys and also navgiated using up/down
 
 ### References 
 
-NONE used.
+none
 
