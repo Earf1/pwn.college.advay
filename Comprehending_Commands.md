@@ -304,14 +304,21 @@ Directories can be made using `mkdir` command
 ### Finding files
 
 ### Solve : 
+First i went into the / directory using cd, then i ran `find -name flag` to list all the directories that contain a file named "flag".
+Upon running `cat` on `/usr/share/racket/pkgs/racket-lib/flag`, i got the flag.
 
-**Flag:** 
+**Flag:** `pwn.college{wfQ-xe1aXsabWAZutk5UERskumf.QXyMDO0wSO5EzNzEzW}`
 
-
+```
+hacker@commands~finding-files:~$ cd /
+hacker@commands~finding-files:/$ find -name flag
+hacker@commands~finding-files:/$ cat /usr/share/racket/pkgs/racket-lib/flag
+pwn.college{wfQ-xe1aXsabWAZutk5UERskumf.QXyMDO0wSO5EzNzEzW}
+```
 ### New Learnings
 
-We use the `find` command to find files.  
-The `find` command takes optional arguments describing the search criteria and the search location. If you don't specify a search criteria, find matches every file. If you don't specify a search location, find uses the current working directory `(.)`.
+find command is used to find files throughout directories.  
+The `find` command takes optional arguments describing the search criteria and the search location. If you don't specify a search criteria, find matches every file. If you don't specify a search location, find uses the current working directory.
 
 ---
 
