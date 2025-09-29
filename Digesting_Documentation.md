@@ -195,9 +195,7 @@ hacker@man~searching-for-manuals:~$
 ```
 
 ### resource used
-on googling what apropos meant, i learn that apropos is used to search for commands that we may have forgotten but remember some keyword of it.
-
-source : [https://www.geeksforgeeks.org/apropos-command-in-linux-with-examples/](https://www.geeksforgeeks.org/apropos-command-in-linux-with-examples/)
+none
 
 ***
 
