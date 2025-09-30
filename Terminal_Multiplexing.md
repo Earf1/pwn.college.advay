@@ -19,7 +19,7 @@ hacker@terminal-multiplexing~launching-screen:~$
 
 The `screen` command creates a new terminal session that can run independently of the parent shell. Screen sessions continue running even if the terminal connection is lost, making them ideal for persistent workflows.
 
-***
+---
 
 ## Detaching and Attaching
 
@@ -46,7 +46,7 @@ hacker@terminal-multiplexing~detaching-and-attaching:~$ echo Yes! Flag is: pwn.c
 
 `Ctrl+A` followed by `d` detaches from a screen session without terminating it, while `screen -r` reattaches to the most recent detached session. Detached sessions can receive output from other processes while you're not attached, allowing for persistent background workflows.
 
-***
+---
 
 ## Finding Sessions
 
@@ -76,7 +76,7 @@ hacker@terminal-multiplexing~finding-sessions:~$
 
 `screen -ls` lists all available screen sessions with their session IDs and states (Detached, Attached, or Dead). Multiple sessions can exist simultaneously, and `screen -r <session_name>` attaches to a specific session by name.
 
-***
+---
 
 ## Switching Windows
 
@@ -106,7 +106,7 @@ hacker@terminal-multiplexing~switching-windows:~$
 
 Screen supports multiple windows within a single session, with `Ctrl+A` followed by a number key switching to that specific window. Window 0 is typically the first/default window, allowing you to organize different tasks within the same session.
 
-***
+---
 
 ## Detaching and Attaching (tmux)
 
