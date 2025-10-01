@@ -16,8 +16,7 @@ hacker@permissions~changing-file-ownership:~$
 ```
 
 ### New Learnings
-
-
+`chown` can be used to change ownership of a file
 
 ---
 
@@ -41,7 +40,7 @@ hacker@permissions~groups-and-files:~$
 ```
 
 ### New Learnings
-
+`chgrp` can be used to change the group that owns the file
 
 
 ---
@@ -64,7 +63,7 @@ hacker@permissions~fun-with-groups-names:~$
 ```
 
 ### New Learnings
-
+`id` can be used to check the current active group and user
 
 ---
 
@@ -85,7 +84,11 @@ hacker@permissions~changing-permissions:~$
 ```
 
 ### New Learnings
-
+The diff modes of chmod are:
+u+r, as above, adds read access to the user's permissions
+g+wx adds write and execute access to the group's permissions
+o-w removes write access for other users
+a-rwx removes all permissions for the user, group, and world
 
 ---
 
@@ -106,7 +109,7 @@ hacker@permissions~executable-files:~$
 ```
 
 ### New Learnings
-
+`+x` with chmod can be used to make a file executable
 
 ---
 
@@ -132,25 +135,30 @@ chmod u=rwx,g=rx,o=rwx /challenge/pwn
 After this, i ran `chmod u=r /flag` and then `cat /flag` to get the flag.
 
 ### New Learnings
-
-The `fg` command brings suspended background jobs back to the foreground, restoring interactive control to the process.
-
+Learnt how be patient with failing levels like these so many times, and also got comfortable with all the different modes of permissions, for user/group/world.
 ---
 
 ## Permission Setting Practice
 
 ### Solve
 
-**Flag:** ` `
+**Flag:** `pwn.college{MQvC315Ctmzc2ZuhJYz6mHAFWaD.QXzETO0wSO5EzNzEzW} `
 
-
-
+Not another one of these challenges >:C
 ```
-
+chmod u=w,g=r,o= /challenge/pwn
+chmod u=rx,g=r,o=wx /challenge/pwn
+chmod u=x,g=rx,o= /challenge/pwn
+chmod u=,g=x,o=rx /challenge/pwn
+chmod u=,g=rx,o=r /challenge/pwn
+chmod u=w,g=w,o=rx /challenge/pwn
+chmod u=x,g=w,o=wx /challenge/pwn
+chmod u=x,g=rw,o=rx /challenge/pwn
 ```
+After this, I ran `chmod +r /flag && cat /flag` to get the flag.
 
 ### New Learnings
-
+Same as last level.
 
 ---
 
