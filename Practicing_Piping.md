@@ -418,3 +418,25 @@ pwn.college{oXrvaZJfE-Bs7-uOAIociMz-cCZ.QXxQDM2wSO5EzNzEzW}
 hacker@piping~split-piping-stderr-and-stdout:~$ 
 ```
 ## Named Pipes
+### solve :
+the flag: `pwn.college{w7QrPk_T1z-DQUrkJgwF5BwA1Gp.01MzMDOxwSO5EzNzEzW} `
+
+In this challenge, the fifo file was non persistent and based on what running `/challenge/run > /tmp/flag_fifo` gave me, I opened up another terminal from the desktop and ran `cat /tmp/flag_fifo`, while keeping the run file running in the other program, and got the flag.
+
+```
+hacker@piping~named-pipes:~$ mkfifo /tmp/flag_fifo
+hacker@piping~named-pipes:~$ /challenge/run > /tmp/flag_fifo
+You're successfully redirecting /challenge/run to a FIFO at /tmp/flag_fifo!
+Bash will now try to open the FIFO for writing, to pass it as the stdout of
+/challenge/run. Recall that operations on FIFOs will *block* until both the
+read side and the write side is open, so /challenge/run will not actually be
+launched until you start reading from the FIFO!
+```
+
+Terminal 2 (opened from desktop):
+```
+hacker@piping~named-pipes:~$ cat /tmp/flag_fifo
+You've correctly redirected /challenge/run's stdout to a FIFO at 
+/tmp/flag_fifo! Here is your flag:
+pwn.college{w7QrPk_T1z-DQUrkJgwF5BwA1Gp.01MzMDOxwSO5EzNzEzW}
+```
