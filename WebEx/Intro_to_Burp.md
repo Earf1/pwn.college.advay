@@ -1,10 +1,6 @@
 # Challenge: Intro To Burp
 - Category: Web
 
-## Description
-Paste the challenge prompt and hints here (verbatim or summarized).  
-Include any linked files, service host/port, or web endpoints.  
-
 ## Files and Setup
 We were given a link `http://titan.picoctf.net:56929/`
 
