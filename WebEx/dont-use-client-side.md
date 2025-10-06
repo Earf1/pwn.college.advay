@@ -43,6 +43,6 @@ On going through the source code, i found
 ```
 In this verify() function, the creds entered are first split into 4, ` split = 4;` and then looking further, I found the entire flag split up in the variou checkpass if conditions, I just had to rearrange it properly based on its split function.
 ## Lessons Learned
-- Using BurpSuite in proxy mode 
-- Removing the otp parameter showed the backend did not enforce server side validation
+- Client-side JavaScript is disclosure: sensitive logic and even full flags can leak via functions like verify() that assemble secrets from substrings. 
+- Using view-source on a webiste can help bring such vulnerabilities to light.
 
