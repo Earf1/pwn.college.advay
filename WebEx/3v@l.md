@@ -1,4 +1,4 @@
-# Challenge: More SQLi
+# Challenge: 3v@l
 - Category: Web
 
 ## Description
